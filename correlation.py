@@ -26,20 +26,19 @@ def compute_phi(file, ev):
                     np1 += 1;
                     n1p += 1;
                 else:
+                    n10 += 1;
+                    n1p += 1;
+                    np0 += 1;
+            else:
+                if data[day]["squirrel"]==True:
                     n01 += 1;
                     n0p += 1;
                     np1 += 1;
-            else:
-                if data[day]["squirrel"]==False:
+                else:
                     n00 += 1;
                     n0p += 1;
                     np0 += 1;
-                else:
-                    n10 += 1;
-                    np0 += 1;
-                    n1p += 1;
-
-    phi = (n11*n00 - n10*n01)/((n1p*n0p*np1*np0)**0.5)
+    phi = ((n11*n00 - n10*n01)/((n1p*n0p*np1*np0)**0.5))
 
     return phi
 
