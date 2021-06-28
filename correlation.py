@@ -7,7 +7,8 @@ def load_journal(json_file):
     data = json.load(f)
     return data
 
-def compute_phi(data, ev):
+def compute_phi(file, ev):
+    data = load_journal(file)
     #         number of times
     n11 = 0 # squirrel and event both happened
     n00 = 0 # squirrel and event both did not happen
@@ -51,7 +52,7 @@ def compute_correlations(file):
         for event in data[entry]["events"]:
             if event not in list_events:
                 list_events.append(event)
-                phi = compute_phi(data, event)
+                phi = compute_phi(file, event)
                 phi_events.append(phi)
     d = {i:j for i,j in zip(list_events, phi_events)}
     #d = dict(zip(list_events, phi_events))
