@@ -26,14 +26,14 @@ def compute_phi(file, ev):
                     np1 += 1;
                     n1p += 1;
                 else:
-                    n10 += 1;
-                    n1p += 1;
-                    np0 += 1;
-            else:
-                if data[day]["squirrel"]==True:
                     n01 += 1;
                     n0p += 1;
                     np1 += 1;
+            else:
+                if data[day]["squirrel"]==True:
+                    n10 += 1;
+                    n1p += 1;
+                    np0 += 1;
                 else:
                     n00 += 1;
                     n0p += 1;
