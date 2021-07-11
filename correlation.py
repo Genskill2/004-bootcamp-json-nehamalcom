@@ -62,5 +62,6 @@ def diagnose(file):
     high_positive = [key for key in d if d[key]==temp]
     temp = min(d.values())
     high_negative = [key for key in d if d[key]==temp]
+    separator = ", "
 
-    return high_positive, high_negative
+    return str(separator.join(high_positive)), str(separator.join(high_negative))
