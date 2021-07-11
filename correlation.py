@@ -19,25 +19,24 @@ def compute_phi(file, ev):
     np1 = 0 # total event happened
     np0 = 0 # total event did not happen
     for day in range(len(data)):
-        for event in data[day]["events"]:
-            if event == ev:
-                if data[day]["squirrel"]==True:
-                    n11 += 1;
-                    np1 += 1;
-                    n1p += 1;
-                else:
-                    n01 += 1;
-                    n0p += 1;
-                    np1 += 1;
+        if ev in data[day]["events"]:
+            if data[day]["squirrel"]==True:
+                n11 += 1;
+                np1 += 1;
+                n1p += 1;
             else:
-                if data[day]["squirrel"]==True:
-                    n10 += 1;
-                    n1p += 1;
-                    np0 += 1;
-                else:
-                    n00 += 1;
-                    n0p += 1;
-                    np0 += 1;
+                n01 += 1;
+                n0p += 1;
+                np1 += 1;
+        else:
+            if data[day]["squirrel"]==True:
+                n10 += 1;
+                n1p += 1;
+                np0 += 1;
+            else:
+                n00 += 1;
+                n0p += 1;
+                np0 += 1;
     phi = ((n11*n00 - n10*n01)/((n1p*n0p*np1*np0)**0.5))
 
     return phi
