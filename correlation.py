@@ -49,7 +49,8 @@ def compute_correlations(file):
     for entry in range(len(data)):
         for event in data[entry]["events"]:
             if event not in list_events:
-                list_events.append(event)
+                print(f"Calculating phi for {event}")
+                list_events.append(str(event)[1:-1])
                 phi = compute_phi(file, event)
                 phi_events.append(phi)
     d = {i:j for i,j in zip(list_events, phi_events)}
